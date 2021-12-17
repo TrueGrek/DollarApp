@@ -1,6 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.dollarapp">
-    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="30" />
-    <application android:label="DollarApp.Android" android:theme="@style/MainTheme"></application>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.dollarapp" android:installLocation="auto">
+	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="30" />
+	<application android:label="DollarApp.Android" android:theme="@style/MainTheme">
+		<!-- i don't know why this feature not working.
+    It should export txt file int file directory or gmail disk with information about 
+    presentege and category. aka backup.
+    NOT WORKING IN SIMULATOR, but may be at phone be good-->
+		<provider android:name="android.support.v4.content.FileProvider" android:authorities="com.grekov.DollarApp.provider" android:exported="false" android:grantUriPermissions="true">
+			<meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_provider_paths" />
+		</provider>
+	</application>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 </manifest>
