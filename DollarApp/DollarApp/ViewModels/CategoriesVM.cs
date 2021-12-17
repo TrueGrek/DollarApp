@@ -2,10 +2,6 @@
 using System.Collections.ObjectModel;
 using DollarApp.Models;
 using System.Linq;
-using Xamarin.Forms;
-using DollarApp.Interface;
-using PCLStorage;
-using System.IO;
 
 namespace DollarApp.ViewModels
 {
@@ -23,12 +19,12 @@ namespace DollarApp.ViewModels
             get;
             set;
         }
-
-        public Command ExportCommand
-        {
-            get;
-            set;
-        }
+        //not work
+        //public Command ExportCommand
+        //{
+        //    get;
+        //    set;
+        //}
 
         public CategoriesVM()
         {
@@ -70,26 +66,26 @@ namespace DollarApp.ViewModels
                 CategoryExpensesCollection.Add(ce);
             }
         }
+        //not work
+        //public async void ShareReport()
+        //{
+        //    IFileSystem fileSystem = FileSystem.Current;
+        //    IFolder rootFolder = fileSystem.LocalStorage;
+        //    IFolder reportsFolder = await rootFolder.CreateFolderAsync("reports", CreationCollisionOption.OpenIfExists);
 
-        public async void ShareReport()
-        {
-            IFileSystem fileSystem = FileSystem.Current;
-            IFolder rootFolder = fileSystem.LocalStorage;
-            IFolder reportsFolder = await rootFolder.CreateFolderAsync("reports", CreationCollisionOption.OpenIfExists);
+        //    var txtFile = await reportsFolder.CreateFileAsync("report.txt", CreationCollisionOption.ReplaceExisting);
 
-            var txtFile = await reportsFolder.CreateFileAsync("report.txt", CreationCollisionOption.ReplaceExisting);
+        //    using (StreamWriter sw = new StreamWriter(txtFile.Path))
+        //    {
+        //        foreach (var ce in CategoryExpensesCollection)
+        //        {
+        //            sw.WriteLine($"{ce.Category} - {ce.ExpensesPercentage:p}");
+        //        }
+        //    }
 
-            using (StreamWriter sw = new StreamWriter(txtFile.Path))
-            {
-                foreach (var ce in CategoryExpensesCollection)
-                {
-                    sw.WriteLine($"{ce.Category} - {ce.ExpensesPercentage:p}");
-                }
-            }
-
-            IShare shareDependency = DependencyService.Get<IShare>();
-            await shareDependency.Show("Expense Report", "Here is your expenses report", txtFile.Path);
-        }
+        //    IShare shareDependency = DependencyService.Get<IShare>();
+        //    await shareDependency.Show("Expense Report", "Here is your expenses report", txtFile.Path);
+        //}
 
         public class CategoryExpenses
         {
