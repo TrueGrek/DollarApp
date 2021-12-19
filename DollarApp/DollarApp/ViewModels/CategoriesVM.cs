@@ -28,7 +28,7 @@ namespace DollarApp.ViewModels
 
         public CategoriesVM()
         {
-            ExportCommand = new Command(ShareReport);
+            //ExportCommand = new Command(ShareReport);
             Categories = new ObservableCollection<string>();
             CategoryExpensesCollection = new ObservableCollection<CategoryExpenses>();
 

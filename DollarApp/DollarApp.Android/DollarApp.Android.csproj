@@ -65,6 +65,7 @@
     <Compile Include="CustomRenderes\CustomTextCellRenderer.cs" />
     <Compile Include="CustomRenderes\CustomViewCellRenderer.cs" />
     <Compile Include="Dependencies\Share.cs" />
+    <Compile Include="Effects\SelectedEffect.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
